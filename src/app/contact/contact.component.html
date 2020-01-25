@@ -1,0 +1,30 @@
+<p>contact works!</p>
+
+<table>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>City</th>
+    <th>Company</th>
+    <tr *ngFor=" let i of persondata">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email | lowercase}}</td>
+        <td>{{i.address.city | lowercase}}</td>
+        <td>{{i.company.name | lowercase}}</td>
+    </tr>
+
+
+</table>
+
+
+<table class="table">
+
+    <tbody>
+    <tr *ngFor="let post of _postsArray">
+        <td class="text-center" style="width: 15px;">{{post.k}}</td>
+        <td class="text-center" style="width: 15px;">{{post.l}}</td>
+
+    </tr>
+    </tbody>
+</table>
