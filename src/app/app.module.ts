@@ -36,9 +36,13 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule,
     PortalModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+          allowedUrls: ['http://jsonplaceholder.typicode.com/**'],
+          sendAccessToken: true
+      }
+  })
   ],
-  //providers: [BackendService, OAuthService,JwksValidationHandler,UrlHelperService,CustomLogger ],
   providers: [BackendService],
 
   bootstrap: [AppComponent]

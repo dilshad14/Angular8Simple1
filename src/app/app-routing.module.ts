@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
-  { path: "contact", component: ContactComponent }
+  //{ path: "index.html", component: AppComponent },
+  { path: "login", component: LoginComponent ,   pathMatch: 'full'},
+  { path: "home", component: HomeComponent ,  pathMatch: 'full'},
+  { path: "contact", component: ContactComponent,   pathMatch: 'full'}
 
 ];
 
@@ -18,4 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutingComponent = [HomeComponent, ContactComponent, ,AppComponent];
+export const RoutingComponent = [HomeComponent, ContactComponent];
