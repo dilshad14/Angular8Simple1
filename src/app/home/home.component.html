@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div id="navPanel" *ngIf="displayNavPanel">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <div class="container" id="nav_bar">
+        <a class="navbar-brand">Welcome to {{ title }}!</a>
+        <ul class="nav navbar-nav" routerLinkActive="active">
+          <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>

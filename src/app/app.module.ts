@@ -10,6 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { BackendService } from './backend.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewChild, AfterViewInit } from '@angular/core';
+import { WindowComponent } from './window/window.component';
+import { PortalModule } from '@angular/cdk/portal';
+//import { OAuthService, JwksValidationHandler,UrlHelperService, OAuthLogger} from 'angular-oauth2-oidc';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { CustomLogger } from './util/CustomLogger';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -18,15 +26,21 @@ import { HttpClientModule } from '@angular/common/http';
     ChangeTextDirective,
     SqrtPipe,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    WindowComponent,
+    LoginComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PortalModule,
+    OAuthModule.forRoot()
   ],
+  //providers: [BackendService, OAuthService,JwksValidationHandler,UrlHelperService,CustomLogger ],
   providers: [BackendService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

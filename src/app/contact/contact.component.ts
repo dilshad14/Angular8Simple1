@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../backend.service'
+import { BackendService } from '../backend.service';
+import { Inject, Injectable } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { DataSharingService } from "../util/data-sharing.service";
 
 @Component({
   selector: 'app-contact',
@@ -8,9 +11,10 @@ import { BackendService } from '../backend.service'
 })
 export class ContactComponent implements OnInit {
 
+
   _postsArray: Array<any> = [];
 
-  constructor(private beService: BackendService) { }
+  constructor(private beService: BackendService, private dataSharingService: DataSharingService) { }
   persondata = [];
   data: any;
   ngOnInit() {
@@ -19,6 +23,18 @@ export class ContactComponent implements OnInit {
 
     });
     this.getMapData();
+
+    this.setNavDisplayFlag('false');
+  }
+
+  setNavDisplayFlag(flag){
+    this.dataSharingService.changeMessage(flag);
+  }
+
+  ngAfterViewInit(): void {
+    console.log("ngAfterViewInit()");
+
+    // change the value of AppComponent variable
 
   }
 
